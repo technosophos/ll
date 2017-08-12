@@ -16,10 +16,13 @@ With iTerm2 (macOS) and the Nerd Font called "Knack Regular Nerd Font Complete",
 Prerequisites:
 - Go
 - [Glide](http://glide.sh)
+- And probably Nerd Fonts
 
 ```console
 $ brew install go glide
 ```
+
+You can install particular Nerd Fonts fonts [with these instructions](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
 
 Grab this repo and build:
 
