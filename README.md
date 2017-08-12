@@ -35,7 +35,7 @@ $ go install ll.go
 If Go complains about $GOBIN not being set:
 
 ```console
-$ GOBIN=/usr/local/bin install ll.go
+$ GOBIN=/usr/local/bin go install ll.go
 ```
 
 ## Troubleshooting
@@ -45,3 +45,9 @@ $ GOBIN=/usr/local/bin install ll.go
 - Some shells alias `ll` to `ls -lah`. You may need to add `alias ll=$GOBIN/ll`
   to your .bashrc, .xshrc, .profile, etc.
 - You may need to add `$GOBIN` to your `$PATH` or put `ll` in `/usr/local/bin`
+
+
+=====
+
+This project is mainly for my own edification. You're more than welcome to submit
+PRs or even fork this and create a version that [scratches your own itch](http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/ar01s02.html).
