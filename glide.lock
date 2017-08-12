@@ -1,0 +1,10 @@
+hash: c188b32c60458cc6cd0dc0fe4e01c1d3122b7f4e9837d7ddfadae0f512a79c06
+updated: 2017-08-12T10:29:01.918873736-06:00
+imports:
+- name: github.com/deis/pkg
+  version: d8ef2e67e88941808f1bfcf28d0a91a122718459
+- name: github.com/dustin/go-humanize
+  version: 259d2a102b871d17f30e3cd9881a642961a1e486
+- name: github.com/Masterminds/goutils
+  version: 3391d3790d23d03408670993e957e8f408993c34
+testImports: []
