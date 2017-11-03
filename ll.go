@@ -107,7 +107,7 @@ func icon(fi os.FileInfo) string {
 		ico = "\ue20f"
 	case "acid.js":
 		ico = "\uf0c3"
-	case "glide.yaml":
+	case "glide.yaml", "Gopkg.toml":
 		ico = "\uf1d8"
 	case "package.json":
 		ico = "\ue718"
