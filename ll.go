@@ -12,7 +12,7 @@ import (
 )
 
 var filenameWidth = 30
-var maxWidth = 80
+var maxWidth = 80 
 
 func main() {
 	dir := "."
