@@ -9,3 +9,7 @@ edition = "2018"
 [dependencies]
 failure = "0.1"
 maplit = "1.0.2"
+clap = "2.33.0"
+size_format = "1.0.2"
+chrono = "0.4.10"
+colorful = "0.2.1"
