@@ -1,6 +1,5 @@
 use clap::{App, Arg};
 use ll::*;
-use std::env::args;
 use std::os::unix::fs::PermissionsExt;
 //use std::ffi::{OsStr, OsString};
 
@@ -50,7 +49,6 @@ fn print_entries(dirname: String, show_hidden: bool) -> LLResult {
             mode: entry.metadata()?.permissions().mode(),
             dir: entry.file_type()?.is_dir(),
         });
-        println!("Mode shifted {}: {}", fname, mode & 0o100);
     }
     for l in lines {
         println!(

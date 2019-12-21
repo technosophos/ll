@@ -1,14 +1,8 @@
-#[macro_use]
-extern crate maplit;
-
 use chrono::prelude::*;
 use colorful::{Color, Colorful};
-use maplit::hashmap;
 use size_format::SizeFormatterSI;
 use std::collections::HashMap;
-use std::env::args;
-use std::ffi::{OsStr, OsString};
-use std::fs::read_dir;
+use std::ffi::OsStr;
 use std::time::UNIX_EPOCH;
 
 pub struct Entry {
@@ -40,7 +34,8 @@ impl Entry {
     pub fn pretty_icon(&self) -> String {
         if self.executable {
             let ico = if self.icon == DEFAULT_ICON {
-                "\u{fc0c}".to_string() // Running man
+                //"\u{fc0c}".to_string() // Running man
+                "\u{f96d}".to_string()
             } else {
                 self.icon.clone()
             };
@@ -128,31 +123,41 @@ impl Default for IconResolver {
             "\u{e718}" => ["package.json"],
             "\u{e711}" => [".DS_Store"],
             "\u{f071}" => ["LICENSE", "COPYING", "LICENSE", "license.txt", "LICENSE.txt", "COPYING.txt"],
-            "\u{f1b2}" => ["Cargo.toml"],
-            "\u{f120}" => [".bashrc", ".zshrc", ".profile"]
+            "\u{f8d6}" => ["Cargo.toml"],
+            "\u{f120}" => [".bashrc", ".zshrc", ".profile"],
+            "\u{f15c}" => ["NOTES.txt", "notes.txt"],
+            "\u{f0cb}" => ["TODO.txt"],
+            "\u{fad0}" => ["code-of-conduct.md", "conduct.md", "conduct.txt"],
+            "\u{f278}" => ["CONTRIBUTING", "CONTRIBUTING.md"],
+            "\u{f0c0}" => ["CODEOWNERS", "OWNERS"],
+            "\u{f1ea}" => ["README.md", "README.txt", "README"]
         ];
 
         let ext_icons = icomap![
             "\u{e7a8}" => ["rs"],
             "\u{f023}" => ["lock"],
-            "\u{f120}" => [".sh", ".bash", ".zsh", ".ksh"],
+            "\u{f120}" => ["sh", "bash", "zsh", "ksh"],
             "\u{e781}" => ["js"],
             "\u{f18d}" => ["log"],
             "\u{f19e}" => ["yaml", "yml"],
             "\u{e60b}" => ["json"],
             "\u{f085}" => ["conf", "config", "cfg"],
-            "\u{f1b3}" => ["bin", "exe"],
+            "\u{f1b3}" => ["bin"],
+            "\u{fab2}" => ["exe"],
             "\u{f1e2}" => ["err"],
-            "\u{e628}" => ["ts"],
+            "\u{fbe4}" => ["ts"],
             "\u{e73c}" => ["py", "pyc", "pyo"],
             "\u{e609}" => ["md", "markdown"],
             "\u{e739}" => ["rb"],
             "\u{e738}" => ["java", "class"],
             "\u{e626}" => ["go"],
             "\u{f1c9}" => ["html", "htm", "xhtml"],
+            "\u{e749}" => ["css"],
+            "\u{e758}" => ["less"],
+            "\u{e74b}" => ["scss", "sass"],
             "\u{e73d}" => ["php", "phar"],
             "\u{e60e}" => ["tpl", "tmpl"],
-            "\u{e61b}" => [".coffee"],
+            "\u{e61b}" => ["coffee"],
             "\u{f1c6}" => ["tgz", "gz", "zip", "bz2", "bz"],
             "\u{f1c1}" => ["pdf"],
             "\u{e60d}" => ["png", "gif", "jpg", "jpeg", "ico", "svg", "tiff", "bmp"],
@@ -169,12 +174,48 @@ impl Default for IconResolver {
             "\u{f0fd}" => ["h"],
             "\u{e61e}" => ["c"],
             "\u{e61d}" => ["cc", "c++"],
-            "\u{f783}" => ["toml", "tml"],
-            "\u{f0f6}" => ["txt"]
+            "\u{f669}" => ["toml", "tml"],
+            "\u{e7b1}" => ["ex", "exs"],
+            "\u{f0f6}" => ["txt"],
+            "\u{e712}" => ["so"],
+            "\u{e711}" => ["dylib"],
+            "\u{e704}" => ["sql", "mysql", "msql"],
+            "\u{e76e}" => ["pgsql", "psql"],
+            "\u{e737}" => ["scala"],
+            "\u{e713}" => ["applescript"],
+            "\u{f085}" => ["wasm"], //Cogs
+            "\u{f253}" => ["tmp", "temp"],
+            "\u{f623}" => ["crt", "csr"],
+            "\u{f805}" => ["key"],
+            "\u{f736}" => ["pem", "pub"],
+            "\u{f81a}" => ["cs"],
+            "\u{f840}" => ["asc"],
+            "\u{fafa}" => ["sha", "sha256", "sha512"],
+            "\u{f499}" => ["test"],
+            "\u{f977}" => ["script"],
+            "\u{e620}" => ["lua"]
         ];
 
         let dir_icons = icomap![
-            "\u{e5fb}" => [".git"]
+            "\u{e5fb}" => [".git"],
+            "\u{f74e}" => ["Pictures", "Movies"],
+            "\u{e713}" => ["Applications", "Library"],
+            "\u{e780}" => ["Code"],
+            "\u{e238}" => ["_scratch"],
+            "\u{fd03}" => [".azure"],
+            "\u{fadc}" => ["target"],
+            "\u{f64e}" => ["Documents"],
+            "\u{fcbe}" => ["Desktop"],
+            "\u{f6d9}" => ["Downloads"],
+            "\u{f832}" => ["Music"],
+            //"\u{fb27}" => ["bin"],
+            "\u{fd24}" => ["Users", "home"],
+            "\u{f499}" => ["test", "testdata"],
+            "\u{fd2f}" => ["deis", "deislabs"],
+            "\u{fd31}" => ["charts", "helm"],
+            "\u{f482}" => ["scripts", "hack"],
+            "\u{f414}" => ["pkg", "lib"],
+            "\u{f43f}" => ["vendor", "node_modules"]
         ];
 
         IconResolver {
